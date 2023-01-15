@@ -9,6 +9,7 @@
           id="title"
           class="u-full-width"
           placeholder="Book name"
+          v-model="title"
         />
       </div>
       <div>
@@ -18,6 +19,7 @@
           id="author"
           class="u-full-width"
           placeholder="Author name"
+          v-model="author" 
         />
       </div>
       <div>
@@ -27,10 +29,14 @@
           id="released"
           class="u-full-width"
           placeholder="Released date"
+          v-model="released"
         />
       </div>
       <div>
-        <button class="btn" @submit="postData()">Add In Your list</button>
+        <button
+          class="btn"
+          @click.prevent="postData()"
+        >Add In Your list</button>
       </div>
     </form>
 
@@ -85,9 +91,9 @@ export default {
   data() {
     return {
       items: [],
-      title: '',
-      author: '',
-      released:''
+      title: "",
+      author: "",
+      released: ""
     };
   },
 
@@ -96,15 +102,27 @@ export default {
       let res = await this.$axios.get(
         "https://zany-rose-alligator-yoke.cyclic.app/todo/all"
       );
-     
+
       this.items = res.data.todos;
       return res;
     },
 
     async postData() {
-       let respons = await this.$axios.post('https://zany-rose-alligator-yoke.cyclic.app/todo');
-        // let respons = respons.data;
-       console.log(respons);
+      try {
+        const data = {
+          title: this.title,
+          author: this.author,
+          released: this.released
+        };
+        const response = await this.$axios.post(
+          "https://zany-rose-alligator-yoke.cyclic.app/todo",
+          data
+        );
+
+        console.log(response)
+      } catch (error) {
+        console.log(error);
+      }
     }
   },
   mounted() {

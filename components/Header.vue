@@ -19,7 +19,7 @@
           id="author"
           class="u-full-width"
           placeholder="Author name"
-          v-model="author" 
+          v-model="author"
         />
       </div>
       <div>
@@ -110,7 +110,7 @@ export default {
     async postData() {
       try {
         const data = {
-          title: this.title,
+          bookName: this.title,
           author: this.author,
           released: this.released
         };
@@ -118,8 +118,13 @@ export default {
           "https://zany-rose-alligator-yoke.cyclic.app/todo",
           data
         );
-
-        console.log(response)
+        
+        this.items.push({
+            bookName: this.title,
+            author: this.author,
+            released: this.released
+          });
+        console.log(response);
       } catch (error) {
         console.log(error);
       }

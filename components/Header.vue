@@ -32,12 +32,19 @@
           v-model="released"
         />
       </div>
-      <div>
+      <div v-if="!awesome">
         <button
           class="btn"
           @click.prevent="postData()"
         >Add In Your list</button>
       </div>
+      <div v-else>
+        <button
+          class="btn"
+          @click.prevent="put()"
+        >Update In Your list</button>
+      </div>
+
     </form>
 
     <section class="table-section">
@@ -59,6 +66,7 @@
           <td>{{ item.released}}</td>
           <td>
             <svg
+              @click="updateData(item.id, item)"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 30 30"
               width="30px"
@@ -94,7 +102,9 @@ export default {
       items: [],
       title: "",
       author: "",
-      released: ""
+      released: "",
+      selectBox: "",
+      awesome: false
     };
   },
 
@@ -125,9 +135,39 @@ export default {
           author: this.author,
           released: this.released
         });
+        (this.title = ""), (this.released = "");
+        this.author = "";
         console.log(response);
       } catch (error) {
         console.log(error);
+      }
+    },
+
+    async updateData(id, item) {
+      this.awesome = true;
+      (this.title = item.bookName),
+        (this.author = item.author),
+        (this.released = item.released);
+      this.selectBox = id;
+    },
+
+    async put() {
+      try {
+        this.awesome = false
+        const updated = await this.$axios.put(
+          `https://zany-rose-alligator-yoke.cyclic.app/todo/${this.selectBox}`,
+          {
+            bookName: this.title,
+            author: this.author,
+            released: this.released
+          }
+        );
+
+        console.log(updated);
+      } catch (error) {
+        console.log(error);
+      } finally {
+        this.loadData();
       }
     },
 
@@ -140,10 +180,9 @@ export default {
         this.items.splice(item, 1);
         this.items;
 
-         alert('Are you sure delete this');
+        alert("Are you sure delete this");
 
         console.log(item);
-
       } catch (error) {
         console.log(error);
       }

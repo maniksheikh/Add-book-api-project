@@ -26,7 +26,7 @@ export default {
   padding: 0 10px;
   font-family: Arial, Helvetica, sans-serif;
   margin-top: -30px;
-  padding: 5px 10px 35px 10px;
+  padding: 5px 10px 30px 10px;
 }
 h1 {
   font-size: 2.3rem;
@@ -51,7 +51,9 @@ div {
     margin: auto !important; 
 } */
 .u-full-width {
-  color: #a4bccb !important;
+  color: #0a0a0a !important;
+  font-size: 14px;
+  font-weight: bold;
 }
 
 div input {

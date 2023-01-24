@@ -62,6 +62,7 @@ div input {
   border-radius: 7px;
   width: 100%;
   padding: 8px 15px;
+  font-size: 14px;
 }
 
 .btn {

@@ -69,6 +69,7 @@
           </td>
           <td>
             <svg
+              @click.prevent="deleteData(item.id)"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 30 30"
               width="25px"
@@ -118,13 +119,31 @@ export default {
           "https://zany-rose-alligator-yoke.cyclic.app/todo",
           data
         );
-        
+
         this.items.push({
-            bookName: this.title,
-            author: this.author,
-            released: this.released
-          });
+          bookName: this.title,
+          author: this.author,
+          released: this.released
+        });
         console.log(response);
+      } catch (error) {
+        console.log(error);
+      }
+    },
+
+    async deleteData(id) {
+      try {
+        const finished = await this.$axios.delete(
+          `https://zany-rose-alligator-yoke.cyclic.app/todo/${id}`
+        );
+        const item = this.items.map(item => item.id).indexOf(id);
+        this.items.splice(item, 1);
+        this.items;
+
+         alert('Are you sure delete this');
+
+        console.log(item);
+
       } catch (error) {
         console.log(error);
       }

@@ -77,6 +77,7 @@ div input {
   border-radius: 7px;
   width: 100%;
   padding: 8px;
+  cursor: pointer;
 }
 
 .table-section {
@@ -84,14 +85,14 @@ div input {
   display: flex;
   justify-content: space-around;
   margin-top:2px;
-  border-radius: 7px;
+  border-radius: 7px !important;
 }
 table {
   width: 100%;
   text-align: left;
   width: 100%;
   height: 100%;
-  border-radius: 5px;
+  
 }
 
 td {
@@ -102,6 +103,7 @@ td {
   padding: 10px 5px !important;
   background: #0c5b75 !important;
   color: white;
+  border-radius: 5px !important;
 }
 
 .table-header th {

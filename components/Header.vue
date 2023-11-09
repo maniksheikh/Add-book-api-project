@@ -53,7 +53,6 @@
           <th>Book</th>
           <th>Author</th>
           <th>Released</th>
-
           <th>Update</th>
           <th>Delete</th>
         </tr>
@@ -111,7 +110,7 @@ export default {
   methods: {
     async loadData() {
       let res = await this.$axios.get(
-        "https://zany-rose-alligator-yoke.cyclic.app/todo/all"
+        "https://nuxt3-todo-api-take-home-project.onrender.com/todo/all"
       );
 
       this.items = res.data.todos;
@@ -126,7 +125,7 @@ export default {
           released: this.released
         };
         const response = await this.$axios.post(
-          "https://zany-rose-alligator-yoke.cyclic.app/todo",
+          "https://nuxt3-todo-api-take-home-project.onrender.com/todo",
           data
         );
 
@@ -155,7 +154,7 @@ export default {
       try {
         this.awesome = false
         const updated = await this.$axios.put(
-          `https://zany-rose-alligator-yoke.cyclic.app/todo/${this.selectBox}`,
+          `https://nuxt3-todo-api-take-home-project.onrender.com/todo/${this.selectBox}`,
           {
             bookName: this.title,
             author: this.author,
@@ -174,7 +173,7 @@ export default {
     async deleteData(id) {
       try {
         const finished = await this.$axios.delete(
-          `https://zany-rose-alligator-yoke.cyclic.app/todo/${id}`
+          `https://nuxt3-todo-api-take-home-project.onrender.com/todo/${id}`
         );
         const item = this.items.map(item => item.id).indexOf(id);
         this.items.splice(item, 1);

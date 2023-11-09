@@ -27,8 +27,12 @@ export default {
   font-family: Arial, Helvetica, sans-serif;
   margin-top: -30px;
   padding: 5px 10px 30px 10px;
+  border-radius: 10px;
+  margin-top: 5rem;
 }
 h1 {
+  text-align: center;
+  align-items: center;
   font-size: 2.3rem;
   font-weight: bold;
   color: #004b63;
@@ -46,13 +50,10 @@ div {
   margin-top: 10px;
   padding: 5px 0;
 }
-/* input {
-    width: 100%;
-    margin: auto !important; 
-} */
+
 .u-full-width {
-  color: #0a0a0a !important;
-  font-size: 14px;
+  color: #807a7a !important;
+  font-size: 13px;
   font-weight: bold;
 }
 
@@ -85,11 +86,21 @@ div input {
   display: flex;
   justify-content: space-around;
   margin-top:2px;
-  border-radius: 7px !important;
+  border-radius: 15px !important;
 }
+.table-header {
+  padding: 10px 5px !important;
+  background: #0c5b75 !important;
+  color: white;
+}
+
+.table-header th {
+   padding: 10px 20px;
+}
+
 table {
   width: 100%;
-  text-align: left;
+  text-align: center;
   width: 100%;
   height: 100%;
   
@@ -99,16 +110,7 @@ td {
     padding:5px 20px;
 }
 
-.table-header {
-  padding: 10px 5px !important;
-  background: #0c5b75 !important;
-  color: white;
-  border-radius: 5px !important;
-}
 
-.table-header th {
-   padding: 10px 20px;
-}
 
 tr:nth-child(odd) {
   background: #c0ced3;

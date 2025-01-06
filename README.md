@@ -2,9 +2,7 @@
 
 ## Build Setup
 
-```bash
-# install dependencies
-$ yarn install
+### https://add-book-api-project.netlify.app
 
 # serve with hot reload at localhost:3000
 $ yarn dev
